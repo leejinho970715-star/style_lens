@@ -30,3 +30,7 @@ test('redirects cannot turn an allowed URL into a private request',async()=>{
   globalThis.fetch=async u=>String(u).includes('dns-query')?Response.json({Status:0,Answer:[{type:1,data:'93.184.216.34'}]}):new Response('',{status:302,headers:{location:'http://127.0.0.1/'}});
   try{await assert.rejects(()=>fetchPublic('https://site.com/'),/공개/);}finally{globalThis.fetch=original;}
 });
+test('document title excludes SVG titles and other page text',()=>{
+  const r=analyzeSources('<html><head><title>Brand site</title></head><body><svg><title>Logo</title><path d="M1 1h1"/></svg></body></html>',[],'https://brand.com/');
+  assert.equal(r.title,'Brand site');
+});
