@@ -13,7 +13,9 @@
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "drizzle-kit generate",
     "test": "node --experimental-strip-types --test tests/analyzer.test.mjs",
-    "build:pages": "vite build --config vite.pages.config.ts"
+    "build:pages": "vite build --config vite.pages.config.ts",
+    "build:vercel": "next build",
+    "start:vercel": "next start"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",

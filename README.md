@@ -10,6 +10,16 @@
 - `main`에 push하면 GitHub Actions가 타입 검사·테스트·정적 빌드 후 Pages를 업데이트합니다.
 - 분석 서버의 변경은 Sites 워크플로를 통해 별도로 배포해야 합니다. GitHub Pages는 서버 코드를 실행하지 않습니다.
 
+
+## Vercel 배포
+
+- GitHub 저장소를 Next.js 프로젝트로 연결하고 Root Directory는 저장소 루트로 둡니다.
+- `vercel.json`이 `npm run build:vercel` (`next build`)과 `.next` 출력 경로를 지정합니다.
+- 기본 `npm run build`는 Sites용 Vinext 빌드입니다. Vercel에는 이 명령을 사용하지 않습니다.
+- Vercel에서는 `/api/analyze`와 `/demo`도 같은 도메인의 Next.js 서버에서 실행합니다. `NEXT_PUBLIC_API_ORIGIN` 및 `NEXT_PUBLIC_BASE_PATH`를 별도로 설정할 필요가 없습니다.
+- 로컬 Vercel 빌드 점검: `npm run build:vercel`, `npm run start:vercel`.
+- GitHub Pages 정적 빌드와 기존 Sites 배포 설정은 유지됩니다.
+
 ## 개발
 
 ```sh
