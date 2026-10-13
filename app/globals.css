@@ -11,7 +11,9 @@
 .eyebrow{font-size:14px;letter-spacing:1.25px}
 .hero-desc{font-size:16px;color:#666b6c}
 .analyze-form{margin-top:36px;position:relative}
-.url-field{border:1.5px solid transparent;background:linear-gradient(white,white) padding-box,linear-gradient(110deg,#ff8b36 0%,#fabb57 40%,#ffe08b 68%,#ff9950 100%) border-box;box-shadow:0 0 0 4px rgba(255,179,80,.07),0 0 28px rgba(255,157,43,.17),0 16px 38px rgba(89,55,17,.07);transition:box-shadow .25s ease,transform .25s ease}
+@property --stylelens-neon-angle{syntax:'<angle>';initial-value:0deg;inherits:false}
+@keyframes stylelens-neon-orbit{to{--stylelens-neon-angle:360deg}}
+.url-field{--stylelens-neon-angle:0deg;border:2px solid transparent;background:linear-gradient(white,white) padding-box,conic-gradient(from var(--stylelens-neon-angle),#ffe6b4 0deg,#ffc46b 55deg,#ff8834 150deg,#ffac3d 185deg,#fff6bc 215deg,#ffd76a 240deg,#ffe6b4 360deg) border-box;box-shadow:0 0 0 4px rgba(255,179,80,.07),0 0 28px rgba(255,157,43,.17),0 16px 38px rgba(89,55,17,.07);animation:stylelens-neon-orbit 6s linear infinite;transition:box-shadow .25s ease,transform .25s ease}
 .url-field:hover{box-shadow:0 0 0 4px rgba(255,179,80,.10),0 0 36px rgba(255,157,43,.22),0 16px 38px rgba(89,55,17,.08)}
 .url-field:focus-within{border-color:transparent;box-shadow:0 0 0 4px rgba(255,172,62,.2),0 0 42px rgba(255,143,31,.22),0 16px 38px rgba(89,55,17,.08)}
 .url-field input{font-size:16px}
